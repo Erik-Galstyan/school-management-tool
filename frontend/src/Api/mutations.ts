@@ -62,3 +62,15 @@ export const DELETE_PUPIL_MUTATION = gql`
     deletePupil(id: $id)
   }
 `
+
+export const DELETE_SUBJECT_MUTATION = gql`
+  mutation deleteSubject($id: Int!) {
+    deleteSubject(id: $id)
+  }
+`
+
+export const DELETE_GRADE_MUTATION = gql`
+  mutation deleteGrade($id: Int!) {
+    deleteGrade(id: $id)
+  }
+`
