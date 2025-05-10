@@ -63,3 +63,12 @@ export const GET_SUBJECT = gql`
     }
   }
 `
+
+export const GET_GRADES = gql`
+  query GetGrades {
+    getGrades {
+      id
+      name
+    }
+  }
+`

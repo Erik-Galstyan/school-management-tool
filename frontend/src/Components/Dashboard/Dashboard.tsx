@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import { TeachersSection } from '../Teacher/TeachersSection'
 import { PupilsSection } from '../Pupil/PupilsSection'
 import { SubjectsSection } from '../Subject/SubjectsSection'
+import { GradesSection } from 'Components/Grade/GradesSection'
 
 export const Dashboard: FC = () => {
   return (
@@ -16,6 +17,7 @@ export const Dashboard: FC = () => {
       <TeachersSection />
       <PupilsSection />
       <SubjectsSection />
+      <GradesSection />
     </Box>
   )
 }

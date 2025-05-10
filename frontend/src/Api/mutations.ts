@@ -31,3 +31,22 @@ export const CREATE_SUBJECT_MUTATION = gql`
     }
   }
 `
+
+export const CREATE_PUPIL_MUTATION = gql`
+  mutation createPupil($name: String!, $gradeId: ID!) {
+    createPupil(name: $name, gradeId: $gradeId) {
+      id
+      name
+      gradeId
+    }
+  }
+`
+
+export const CREATE_GRADE_MUTATION = gql`
+  mutation createGrade($name: String!) {
+    createGrade(name: $name) {
+      id
+      name
+    }
+  }
+`

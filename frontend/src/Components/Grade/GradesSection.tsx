@@ -2,12 +2,12 @@ import { FC } from 'react'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import Box from '@mui/material/Box'
-import { usePupils } from 'Hooks/usePupils'
-import { PupilCard } from './PupilCard'
-import { AddPupil } from './AddPupil'
+import { AddGrade } from './AddGrade'
+import { useGrades } from 'Hooks/useGrades'
+import { GradeCard } from './GradeCard'
 
-export const PupilsSection: FC = () => {
-  const { pupils } = usePupils()
+export const GradesSection: FC = () => {
+  const { grades } = useGrades()
 
   return (
     <Stack
@@ -24,13 +24,12 @@ export const PupilsSection: FC = () => {
         }}
       >
         <Typography variant="h5" fontWeight={500}>
-          Pupils
+          Grades
         </Typography>
-        <AddPupil />
+        <AddGrade />
       </Box>
-
-      {pupils.map((pupil) => {
-        return <PupilCard key={pupil.id} pupil={pupil} />
+      {grades.map((grade) => {
+        return <GradeCard key={grade.id} grade={grade} />
       })}
     </Stack>
   )
