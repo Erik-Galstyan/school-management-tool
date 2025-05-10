@@ -1,15 +1,15 @@
 # Define the Pupil type
 type Pupil {
-  id: ID!
+  id: Int!
   name: String!
-  gradeId: ID!
+  gradeId: Int!
   # This is the simple model, can be extended based on requirements
 }
 
 # Queries to get Pupils
 type Query {
   # Fetch a pupil by their ID
-  getPupil(id: ID!): Pupil
+  getPupil(id: Int!): Pupil
 
   # Fetch all pupils
   getPupils: [Pupil!]!
@@ -18,11 +18,11 @@ type Query {
 # Mutations to create or update pupils
 type Mutation {
   # Create a new pupil
-  createPupil(name: String!, gradeId: ID!): Pupil!
+  createPupil(name: String!, gradeId: Int!): Pupil!
 
   # Update an existing pupil's information
-  updatePupil(id: ID!, name: String!, gradeId: ID!): Pupil!
+  updatePupil(id: Int!, name: String!, gradeId: Int!): Pupil!
 
   # Delete a pupil by their ID
-  deletePupil(id: ID!): Boolean!
+  deletePupil(id: Int!): Boolean!
 }

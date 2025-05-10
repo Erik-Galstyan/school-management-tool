@@ -1,4 +1,4 @@
 export interface SubjectItem {
-  id: string
+  id: number
   name: string
 }

@@ -1,6 +1,6 @@
 # Define the User type
 type User {
-  id: ID!
+  id: Int!
   email: String!
   role: String!
 }

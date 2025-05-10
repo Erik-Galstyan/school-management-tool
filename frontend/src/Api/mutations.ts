@@ -23,7 +23,7 @@ export const CREATE_TEACHER_MUTATION = gql`
 `
 
 export const CREATE_SUBJECT_MUTATION = gql`
-  mutation createSubject($name: String!, $teacherId: ID!) {
+  mutation createSubject($name: String!, $teacherId: Int!) {
     createSubject(name: $name, teacherId: $teacherId) {
       id
       name
@@ -33,7 +33,7 @@ export const CREATE_SUBJECT_MUTATION = gql`
 `
 
 export const CREATE_PUPIL_MUTATION = gql`
-  mutation createPupil($name: String!, $gradeId: ID!) {
+  mutation createPupil($name: String!, $gradeId: Int!) {
     createPupil(name: $name, gradeId: $gradeId) {
       id
       name
@@ -48,5 +48,17 @@ export const CREATE_GRADE_MUTATION = gql`
       id
       name
     }
+  }
+`
+
+export const DELETE_TEACHER_MUTATION = gql`
+  mutation deleteTeacher($id: Int!) {
+    deleteTeacher(id: $id) 
+  }
+`
+
+export const DELETE_PUPIL_MUTATION = gql`
+  mutation deletePupil($id: Int!) {
+    deletePupil(id: $id)
   }
 `

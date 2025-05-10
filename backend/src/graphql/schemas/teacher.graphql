@@ -1,6 +1,6 @@
 # Define the Teacher type
 type Teacher {
-  id: ID!
+  id: Int!
   name: String!
   # This is the simple model, can be extended based on requirements
 }
@@ -12,7 +12,7 @@ extend type Teacher {
 # Queries to get teachers
 type Query {
   # Fetch a teacher by their ID
-  getTeacher(id: ID!): Teacher
+  getTeacher(id: Int!): Teacher
 
   # Fetch all teachers
   getTeachers: [Teacher!]!
@@ -24,8 +24,8 @@ type Mutation {
   createTeacher(name: String!): Teacher!
 
   # Update an existing teacher's information
-  updateTeacher(id: ID!, name: String!): Teacher!
+  updateTeacher(id: Int!, name: String!): Teacher!
 
   # Delete a teacher by their ID
-  deleteTeacher(id: ID!): Boolean!
+  deleteTeacher(id: Int!): Boolean!
 }

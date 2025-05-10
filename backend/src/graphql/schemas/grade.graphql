@@ -1,6 +1,6 @@
 # Define the Grade type
 type Grade {
-  id: ID!
+  id: Int!
   name: String!
   # This is the simple model, can be extended based on requirements
 }
@@ -13,7 +13,7 @@ extend type Grade {
 # Queries to get Grades
 type Query {
   # Fetch a Grade by their ID
-  getGrade(id: ID!): Grade
+  getGrade(id: Int!): Grade
 
   # Fetch all Grades
   getGrades: [Grade!]!
@@ -25,8 +25,8 @@ type Mutation {
   createGrade(name: String!): Grade!
 
   # Update an existing Grade's information
-  updateGrade(id: ID!, name: String!, subjectIds: [ID!]): Grade!
+  updateGrade(id: Int!, name: String!, subjectIds: [Int!]): Grade!
 
   # Delete a Grade by their ID
-  deleteGrade(id: ID!): Boolean!
+  deleteGrade(id: Int!): Boolean!
 }

@@ -20,7 +20,7 @@ export const GET_TEACHERS = gql`
 `
 
 export const GET_TEACHER = gql`
-  query GetTeacher($id: ID!) {
+  query GetTeacher($id: Int!) {
     getTeacher(id: $id) {
       id
       name
@@ -38,7 +38,7 @@ export const GET_PUPILS = gql`
 `
 
 export const GET_PUPIL = gql`
-  query GetPupil($id: ID!) {
+  query GetPupil($id: Int!) {
     getPupil(id: $id) {
       id
       name
@@ -56,7 +56,7 @@ export const GET_SUBJECTS = gql`
 `
 
 export const GET_SUBJECT = gql`
-  query GetSubject($id: ID!) {
+  query GetSubject($id: Int!) {
     getSubject(id: $id) {
       id
       name
