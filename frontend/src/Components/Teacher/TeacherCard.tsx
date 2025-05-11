@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import { useMutation } from '@apollo/client'
 import { DELETE_TEACHER_MUTATION } from 'Api/mutations'
 import { GET_TEACHERS } from 'Api/queries'
+import { EditTeacher } from './EditTeacher'
 
 interface TeacherCardProps {
   teacher: TeacherItem
@@ -59,9 +60,12 @@ export const TeacherCard: FC<TeacherCardProps> = (props) => {
           </Stack>
         </Box>
 
-        <IconButton sx={{ p: 0 }} onClick={() => handleDelete(teacher.id)}>
-          <DeleteIcon fontSize="small" sx={{}} />
-        </IconButton>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.8, p: 0 }}>
+          <EditTeacher teacher={teacher} />
+          <IconButton onClick={() => handleDelete(teacher.id)}>
+            <DeleteIcon fontSize="small"/>
+          </IconButton>
+        </Box>
       </Box>
     </Card>
   )

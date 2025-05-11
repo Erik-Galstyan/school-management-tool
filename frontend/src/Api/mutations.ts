@@ -74,3 +74,12 @@ export const DELETE_GRADE_MUTATION = gql`
     deleteGrade(id: $id)
   }
 `
+
+export const UPDATE_TEACHER_MUTATION = gql`
+  mutation updateTeacher($id: Int!, $name: String!) {
+    updateTeacher(id: $id, name: $name) {
+      id
+      name
+    }
+  }
+`

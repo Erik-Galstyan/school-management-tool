@@ -2,19 +2,13 @@ import { useState } from 'react'
 import { useMutation } from '@apollo/client'
 import { CREATE_TEACHER_MUTATION } from 'Api/mutations'
 import { GET_TEACHERS } from 'Api/queries'
-
-import Dialog from '@mui/material/Dialog'
-import DialogActions from '@mui/material/DialogActions'
-import DialogContent from '@mui/material/DialogContent'
-import DialogTitle from '@mui/material/DialogTitle'
-import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton'
-import TextField from '@mui/material/TextField'
 import AddCircle from '@mui/icons-material/AddCircle'
+import { EditFormTeacher } from './EditFormTeacher'
 
 export const AddTeacher = () => {
   const [open, setOpen] = useState(false)
-  const [teacherName, setTeacherName] = useState('')
+  const [teacher, setTeacher] = useState({ name: '' })
   const [createTeacher] = useMutation(CREATE_TEACHER_MUTATION, {
     refetchQueries: [{ query: GET_TEACHERS }],
   })
@@ -27,14 +21,20 @@ export const AddTeacher = () => {
     setOpen(false)
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.code === 'Enter') {
+      handleSubmit()
+    }
+  }
+
   const handleSubmit = async () => {
     try {
       await createTeacher({
         variables: {
-          name: teacherName,
+          name: teacher.name,
         },
       })
-      setTeacherName('')
+      setTeacher({ ...teacher, name: '' })
       handleClose()
     } catch (err) {
       console.error(err)
@@ -46,32 +46,16 @@ export const AddTeacher = () => {
       <IconButton color="primary" onClick={handleClickOpen}>
         <AddCircle fontSize="medium" />
       </IconButton>
-      <Dialog open={open} onClose={handleClose} fullWidth>
-        <DialogTitle>Add Teacher</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            label="Name"
-            type="text"
-            fullWidth
-            value={teacherName}
-            onChange={(e) => setTeacherName(e.target.value)}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="secondary">
-            Cancel
-          </Button>
-          <Button
-            onClick={handleSubmit}
-            color="primary"
-            disabled={!teacherName}
-          >
-            Submit
-          </Button>
-        </DialogActions>
-      </Dialog>
+      <EditFormTeacher
+        isDialogOpen={open}
+        teacher={teacher}
+        dialogTitle="Add"
+        submitButtonLabel="Add"
+        updateTeacher={setTeacher}
+        onCloseDialog={handleClose}
+        onSubmitForm={handleSubmit}
+        onKeyDownHandler={handleKeyDown}
+      />
     </>
   )
 }
