@@ -23,7 +23,7 @@ export const Header: FC = () => {
 
   return (
     <AppBar
-      position="fixed"
+      position="static"
       sx={{
         backgroundColor: 'white',
       }}
