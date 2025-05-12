@@ -11,6 +11,7 @@ const main = async () => {
   dotenv.config()
   const app = express()
   const server = new ApolloServer({ schema })
+  const PORT = process.env.PORT || 2222
 
   try {
     await server.start()
@@ -27,8 +28,8 @@ const main = async () => {
     expressMiddleware(server, { context }),
   )
 
-  app.listen(process.env.PORT, () => {
-    console.log(`Server running on port ${process.env.PORT}.`)
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}.`)
   })
 }
 

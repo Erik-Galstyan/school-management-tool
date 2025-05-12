@@ -33,9 +33,9 @@ export const TeachersSection: FC = () => {
           width: '100%',
         }}
       >
-        {teachers.map((teacher) => {
-          return <TeacherCard key={teacher.id} teacher={teacher} />
-        })}
+        {teachers.map((teacher) => (
+          <TeacherCard key={teacher.id} teacher={teacher} />
+        ))}
       </Box>
     </Stack>
   )

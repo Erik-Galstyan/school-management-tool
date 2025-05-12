@@ -6,6 +6,7 @@ const prisma = new PrismaClient()
 const getUserFromToken = async (token: string) => {
   try {
     const decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY || '')
+    
     const userId = (decodedToken as any).userId
     const user = await prisma.user.findUnique({ where: { id: userId } })
     if (user?.role == 'admin') {

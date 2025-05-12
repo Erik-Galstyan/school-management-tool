@@ -2,12 +2,9 @@
 type Grade {
   id: Int!
   name: String!
-  # This is the simple model, can be extended based on requirements
-}
-
-extend type Grade {
   pupils: [Pupil!]!
   subjects: [Subject!]!
+  # This is the simple model, can be extended based on requirements
 }
 
 # Queries to get Grades
