@@ -6,7 +6,7 @@ import DialogActions from '@mui/material/DialogActions'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import { Stack } from '@mui/material'
-import { SelectGrade } from './SelectPupil'
+import { SelectGrade } from 'Components/Grade/SelectGrade'
 
 interface EditFormPupilProps {
   dialogTitle: string

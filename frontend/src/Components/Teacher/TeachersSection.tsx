@@ -28,15 +28,10 @@ export const TeachersSection: FC = () => {
         </Typography>
         <AddTeacher />
       </Box>
-      <Box
-        sx={{
-          width: '100%',
-        }}
-      >
-        {teachers.map((teacher) => (
-          <TeacherCard key={teacher.id} teacher={teacher} />
-        ))}
-      </Box>
+
+      {teachers.map((teacher) => (
+        <TeacherCard key={teacher.id} teacher={teacher} />
+      ))}
     </Stack>
   )
 }
