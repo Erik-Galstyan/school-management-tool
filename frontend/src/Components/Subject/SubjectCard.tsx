@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import Box from '@mui/material/Box'
 import { DELETE_SUBJECT_MUTATION } from 'Api/mutations'
 import { GET_SUBJECTS } from 'Api/queries'
+import { EditSubject } from './EditSubject'
 
 interface SubjectCardProps {
   subject: SubjectItem
@@ -54,9 +55,13 @@ export const SubjectCard: FC<SubjectCardProps> = (props) => {
             <Typography variant="body1">{subject.name} </Typography>
           </Stack>
         </Box>
-        <IconButton sx={{ p: 0 }} onClick={() => handleDelete(subject.id)}>
-          <DeleteIcon fontSize="small" sx={{}} />
-        </IconButton>
+
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.8, p: 0 }}>
+          <EditSubject subject={subject} />
+          <IconButton onClick={() => handleDelete(subject.id)}>
+            <DeleteIcon fontSize="small"/>
+          </IconButton>
+        </Box>
       </Box>
     </Card>
   )

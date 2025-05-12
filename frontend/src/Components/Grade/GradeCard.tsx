@@ -9,6 +9,7 @@ import { useMutation } from '@apollo/client'
 import  IconButton  from '@mui/material/IconButton'
 import  Box  from '@mui/material/Box'
 import DeleteIcon from '@mui/icons-material/Delete'
+import { EditGrade } from './EditGrade'
 
 
 
@@ -57,9 +58,12 @@ export const GradeCard: FC<GradeCardProps> = (props) => {
             <Typography variant="body1">{grade.name} </Typography>
           </Stack>
         </Box>
-        <IconButton sx={{ p: 0 }} onClick={() => handleDelete(grade.id)}>
-          <DeleteIcon fontSize="small" sx={{}} />
-        </IconButton>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.8, p: 0 }}>
+          <EditGrade grade={grade} />
+          <IconButton onClick={() => handleDelete(grade.id)}>
+            <DeleteIcon fontSize="small"/>
+          </IconButton>
+        </Box>
       </Box>
     </Card>
   )

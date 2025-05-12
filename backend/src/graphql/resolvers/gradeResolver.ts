@@ -38,19 +38,15 @@ const gradeResolver = {
     // Update an existing Grade's information, including related subjects
     updateGrade: async (
       _: any,
-      args: { id: number; name: string; subjectIds: number[] },
+      args: { id: number; name: string },
     ) => {
       return prisma.grade.update({
         where: { id: args.id },
         data: {
           name: args.name,
-          subjects: {
-            set: args.subjectIds.map((id) => ({ id })), // Update subjects by setting new relations
-          },
         },
         include: {
           pupils: true, // Include updated pupils
-          subjects: true, // Include updated subjects
         },
       })
     },

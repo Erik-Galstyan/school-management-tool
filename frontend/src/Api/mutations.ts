@@ -83,3 +83,22 @@ export const UPDATE_TEACHER_MUTATION = gql`
     }
   }
 `
+
+export const UPDATE_SUBJECT_MUTATION = gql`
+  mutation updateSubject($id: Int!, $name: String!, $teacherId: Int!) {
+    updateSubject(id: $id, name: $name, teacherId: $teacherId) {
+      id
+      name
+      teacherId
+    }
+  }
+`
+
+export const UPDATE_GRADE_MUTATION = gql`
+  mutation updateGrade($id: Int!, $name: String!) {
+    updateGrade(id: $id, name: $name) {
+      id
+      name
+    }
+  }
+`

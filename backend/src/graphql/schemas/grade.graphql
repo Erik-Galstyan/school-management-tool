@@ -22,7 +22,7 @@ type Mutation {
   createGrade(name: String!): Grade!
 
   # Update an existing Grade's information
-  updateGrade(id: Int!, name: String!, subjectIds: [Int!]): Grade!
+  updateGrade(id: Int!, name: String!): Grade!
 
   # Delete a Grade by their ID
   deleteGrade(id: Int!): Boolean!
