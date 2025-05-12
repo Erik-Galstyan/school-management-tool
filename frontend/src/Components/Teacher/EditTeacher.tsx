@@ -17,8 +17,8 @@ export const EditTeacher: FC<EditTEacherProps> = (props) => {
   const [open, setOpen] = useState(false)
   const [teacher, setTeacher] = useState(teacherInitValue)
   const [updateTeacher] = useMutation(UPDATE_TEACHER_MUTATION, {
-      refetchQueries: [{ query: GET_TEACHERS }],
-    })
+    refetchQueries: [{ query: GET_TEACHERS }],
+  })
 
   const handleClose = () => {
     setOpen(false)
@@ -26,15 +26,15 @@ export const EditTeacher: FC<EditTEacherProps> = (props) => {
 
   const handleSubmit = async () => {
     try {
-        await updateTeacher({
-            variables: {
-                id: teacher.id,
-                name: teacher.name
-            }
-        })
-        handleClose()
+      await updateTeacher({
+        variables: {
+          id: teacher.id,
+          name: teacher.name,
+        },
+      })
+      handleClose()
     } catch (error) {
-        console.log(error);
+      console.log(error)
     }
   }
 

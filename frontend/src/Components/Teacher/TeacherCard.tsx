@@ -34,10 +34,7 @@ export const TeacherCard: FC<TeacherCardProps> = (props) => {
     <Card
       elevation={2}
       sx={{
-        display: 'flex',
-        flexDirection: 'column',
         width: '100%',
-        position: 'relative',
         marginX: 2,
         paddingX: 2,
         paddingY: 1,
@@ -63,7 +60,7 @@ export const TeacherCard: FC<TeacherCardProps> = (props) => {
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.8, p: 0 }}>
           <EditTeacher teacher={teacher} />
           <IconButton onClick={() => handleDelete(teacher.id)}>
-            <DeleteIcon fontSize="small"/>
+            <DeleteIcon fontSize="small" />
           </IconButton>
         </Box>
       </Box>

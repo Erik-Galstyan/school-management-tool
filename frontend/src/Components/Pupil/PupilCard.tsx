@@ -9,6 +9,7 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import { useMutation } from '@apollo/client'
 import { DELETE_PUPIL_MUTATION } from 'Api/mutations'
 import { GET_PUPILS } from 'Api/queries'
+import { EditPupil } from './EditPupil'
 
 interface PupilCardProps {
   pupil: SubjectItem
@@ -55,10 +56,12 @@ export const PupilCard: FC<PupilCardProps> = (props) => {
             <Typography variant="body1">{pupil.name} </Typography>
           </Stack>
         </Box>
-
-        <IconButton sx={{ p: 0 }} onClick={() => handleDelete(pupil.id)}>
-          <DeleteIcon fontSize="small" sx={{}} />
-        </IconButton>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.8, p: 0 }}>
+          <EditPupil pupil={pupil} />
+          <IconButton sx={{ p: 0 }} onClick={() => handleDelete(pupil.id)}>
+            <DeleteIcon fontSize="small" sx={{}} />
+          </IconButton>
+        </Box>
       </Box>
     </Card>
   )

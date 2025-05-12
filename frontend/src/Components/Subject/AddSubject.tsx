@@ -38,7 +38,7 @@ export const AddSubject = () => {
     }
   }
 
-    const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.code === 'Enter') {
       handleSubmit()
     }

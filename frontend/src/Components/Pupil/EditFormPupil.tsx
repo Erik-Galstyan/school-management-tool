@@ -5,39 +5,39 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogActions from '@mui/material/DialogActions'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import { SelectTeacher } from 'Components/Teacher/SelectTeacher'
 import { Stack } from '@mui/material'
+import { SelectGrade } from './SelectPupil'
 
-interface EditFormSubjectProps {
+interface EditFormPupilProps {
   dialogTitle: string
-  subjectName: string
+  pupilName: string
   isDialogOpen: boolean
   submitButtonLabel: string
-  teacherId: number | undefined
+  gradeId: number | undefined
   onCloseDialog: () => void
-  updateSubject: (updatedSubject: any) => void
-  updateTeacherId: (id: number | undefined) => void
+  updatePupil: (updatedPupil: any) => void
+  updateGradeId: (id: number | undefined) => void
   onKeyDownHandler: (e: React.KeyboardEvent) => void
   onSubmitForm: () => void
 }
 
-export const EditFormSubject: FC<EditFormSubjectProps> = (props) => {
+export const EditFormPupil: FC<EditFormPupilProps> = (props) => {
   const {
     dialogTitle,
-    subjectName,
+    pupilName,
     isDialogOpen,
     submitButtonLabel,
-    teacherId,
+    gradeId,
     onCloseDialog,
-    updateSubject,
-    updateTeacherId,
+    updatePupil,
+    updateGradeId,
     onKeyDownHandler,
     onSubmitForm,
   } = props
 
   return (
     <Dialog open={isDialogOpen} onClose={onCloseDialog} fullWidth>
-      <DialogTitle>{dialogTitle} Subject</DialogTitle>
+      <DialogTitle>{dialogTitle} Pupil</DialogTitle>
       <DialogContent onKeyDown={onKeyDownHandler}>
         <Stack gap={4}>
           <TextField
@@ -46,12 +46,12 @@ export const EditFormSubject: FC<EditFormSubjectProps> = (props) => {
             label="Name"
             type="text"
             fullWidth
-            value={subjectName}
-            onChange={(e) => updateSubject(e.target.value)}
+            value={pupilName}
+            onChange={(e) => updatePupil(e.target.value)}
           />
-          <SelectTeacher
+          <SelectGrade
             onSelect={(id) => {
-              updateTeacherId(id)
+              updateGradeId(id)
             }}
           />
         </Stack>
@@ -63,7 +63,7 @@ export const EditFormSubject: FC<EditFormSubjectProps> = (props) => {
         <Button
           onClick={onSubmitForm}
           color="primary"
-          disabled={!subjectName || !teacherId}
+          disabled={!pupilName || !gradeId}
         >
           {submitButtonLabel}
         </Button>
